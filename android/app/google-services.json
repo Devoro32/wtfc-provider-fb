@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "843273311118",
+    "project_id": "wtfc-provider-fb",
+    "storage_bucket": "wtfc-provider-fb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:843273311118:android:829d56433cba3886178adf",
+        "android_client_info": {
+          "package_name": "com.example.wtfc_provider_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBOy7T2eJT95VkBSt1Zrg3yNUkO0riiSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
