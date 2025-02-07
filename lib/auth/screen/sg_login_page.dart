@@ -1,5 +1,6 @@
 import 'package:wtfc_provider_app/export.dart';
 
+//https://youtu.be/7P_IC3dviRk?t=1997
 class SGLoginPage extends StatefulWidget {
   const SGLoginPage({super.key});
 
@@ -11,6 +12,43 @@ class _SGLoginPageState extends State<SGLoginPage> {
   final formkey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool isLoading = false;
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+
+    super.dispose();
+  }
+
+  void signInUser() async {
+    String res = await AuthServices().signInUser(
+      email: _emailController.text,
+      password: _passwordController.text,
+    );
+
+    //if signup is success, user has been created and navigate to the next screen
+    //otherwise show the error message
+    if (res == 'success') {
+      setState(() {
+        isLoading = true;
+      });
+
+      //navigate to the next screen
+      // Navigator.of(context).pushReplacement(
+      //   MaterialPageRoute(
+      //     builder: (context) => const AuthHomeScreen(),
+      //   ),
+      // );
+      Navigator.pushNamed(context, '/home');
+    } else {
+      setState(() {
+        isLoading = false;
+      });
+      showSnackBar(context, res);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +97,7 @@ class _SGLoginPageState extends State<SGLoginPage> {
                   height: 60,
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: signInUser,
                     child: const Text(
                       'Login',
                       style: TextStyle(

@@ -1,6 +1,7 @@
 import 'package:wtfc_provider_app/export.dart';
 import 'package:wtfc_provider_app/file_storage/services/cloudinary_services.dart';
 
+//show the result once you have selected a file to be uploaded
 class FSUploadArea extends StatefulWidget {
   const FSUploadArea({super.key});
 
@@ -35,7 +36,7 @@ class _FSUploadAreaState extends State<FSUploadArea> {
               readOnly: true,
               initialValue: selectedFile.files.first.extension,
               decoration: const InputDecoration(
-                label: Text('Name'),
+                label: Text('File Type'),
               ),
             ),
             //show the size of the file

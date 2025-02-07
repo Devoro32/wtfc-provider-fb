@@ -70,6 +70,7 @@ class AuthServices {
     //if there is no current user, therefore it is null
     //thus if there is a current user, it will be false and invert to true
     var user = _auth.currentUser;
+    print('current user ${user}');
     return user != null;
   }
 }

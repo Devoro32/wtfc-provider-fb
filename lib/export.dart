@@ -12,6 +12,9 @@ export 'package:curved_navigation_bar/curved_navigation_bar.dart';
 export 'package:image_picker/image_picker.dart';
 export 'package:flutter_dotenv/flutter_dotenv.dart';
 export 'package:file_picker/file_picker.dart';
+export 'package:wtfc_provider_app/main_homepage.dart';
+export 'package:video_player/video_player.dart';
+export 'package:crypto/crypto.dart';
 
 //gmap
 export 'package:wtfc_provider_app/gmap/gmap_screen.dart';
@@ -82,19 +85,33 @@ export 'package:wtfc_provider_app/booking_events/views/bookevent_signup.dart';
 export 'package:wtfc_provider_app/booking_events/admin/bk_uplaod_event.dart';
 
 //!Signup
+//views
 export 'package:wtfc_provider_app/auth/screen/signup.dart';
 export 'package:wtfc_provider_app/auth/screen/signin.dart';
 export 'package:wtfc_provider_app/auth/screen/auth_homescreen.dart';
 export 'package:wtfc_provider_app/auth/screen/auth_forgot_pw.dart';
-export 'package:wtfc_provider_app/auth/screen/widgets/sg_login_page.dart';
-export 'package:wtfc_provider_app/auth/screen/widgets/sg_signup_page.dart';
+export 'package:wtfc_provider_app/auth/screen/sg_login_page.dart';
+export 'package:wtfc_provider_app/auth/screen/sg_signup_page.dart';
 
+//widgets
 export 'package:wtfc_provider_app/auth/screen/widgets/text_field.dart';
 export 'package:wtfc_provider_app/auth/screen/widgets/auth_button.dart';
 export 'package:wtfc_provider_app/auth/screen/widgets/snack_bar.dart';
 
+//data
+export 'package:wtfc_provider_app/auth/data/auth_menu_item.dart';
+
+//services
 export 'package:wtfc_provider_app/auth/services/fb_auth.dart';
+//model
+export 'package:wtfc_provider_app/auth/model/auth_menu_item_model.dart';
 
 //!file Storage
+//views
 export 'package:wtfc_provider_app/file_storage/views/file_storage_home.dart';
 export 'package:wtfc_provider_app/file_storage/views/upload_area.dart';
+export 'package:wtfc_provider_app/file_storage/views/fs_preview_image.dart';
+export 'package:wtfc_provider_app/file_storage/views/fs_preview_video.dart';
+//services
+export 'package:wtfc_provider_app/file_storage/services/fb_services.dart';
+export 'package:wtfc_provider_app/file_storage/services/cloudinary_services.dart';

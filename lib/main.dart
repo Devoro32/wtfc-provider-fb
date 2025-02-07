@@ -46,16 +46,18 @@ class MyApp extends StatelessWidget {
         ),
         //!file storage app
         routes: {
-          '/': (context) => const SGLoginPage(),
-          //(context) => const FileStorageHome(),
-          '/fsupload': (context) => const FSUploadArea(),
+          '/': (context) => const SGCheckUserState(),
+          '/home': (context) => const MainHomePage(),
           '/loginform': (context) => const SGLoginPage(),
           '/signupform': (context) => const SGSignUpPage(),
           '/voting': (context) => const VotingScreen(),
           '/recipe': (context) => const RecipeAppMainView(),
           '/habittracker': (context) => const HabitListScreen(),
           '/filestorage': (context) => const FileStorageHome(),
+          '/fsupload': (context) => const FSUploadArea(),
           '/bookingevent': (context) => const EventBottomNav(),
+          '/expensetracker': (context) => const ExpenseTrackerScreen(),
+          '/signout': (context) => const AuthHomeScreen(),
         },
         // home: StreamBuilder(
         //     stream: FirebaseAuth.instance.authStateChanges(),
@@ -75,6 +77,35 @@ class MyApp extends StatelessWidget {
         //!Recipe App
         // const RecipeAppMainView(),
       ),
+    );
+  }
+}
+
+class SGCheckUserState extends StatefulWidget {
+  const SGCheckUserState({super.key});
+
+  @override
+  State<SGCheckUserState> createState() => _SGCheckUserStateState();
+}
+
+class _SGCheckUserStateState extends State<SGCheckUserState> {
+  @override
+  void initState() {
+    AuthServices().isLoggedin().then((value) {
+      print('Is user login: ${value}');
+      if (value) {
+        Navigator.pushReplacementNamed(context, '/home');
+      } else {
+        Navigator.pushReplacementNamed(context, '/loginform');
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: CircularProgressIndicator(),
     );
   }
 }

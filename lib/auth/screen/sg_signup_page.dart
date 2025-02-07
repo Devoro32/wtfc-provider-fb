@@ -8,7 +8,7 @@ class SGSignUpPage extends StatefulWidget {
 }
 
 class _SGSignUpPageState extends State<SGSignUpPage> {
-  final formkey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -18,7 +18,7 @@ class _SGSignUpPageState extends State<SGSignUpPage> {
     return Scaffold(
       body: SafeArea(
         child: Form(
-          key: formkey,
+          key: formKey,
           child: Center(
             child: Column(
               children: [
@@ -73,7 +73,25 @@ class _SGSignUpPageState extends State<SGSignUpPage> {
                   height: 60,
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        AuthServices()
+                            .signUpUser(
+                          email: _emailController.text,
+                          password: _passwordController.text,
+                          name: _nameController.text,
+                        )
+                            .then((value) {
+                          if (value == 'success') {
+                            showSnackBar(context, 'Account created');
+                            Navigator.restorablePushNamedAndRemoveUntil(
+                                context, '/home', (route) => false);
+                          } else {
+                            showSnackBar(context, value);
+                          }
+                        });
+                      }
+                    },
                     child: const Text(
                       'Login',
                       style: TextStyle(
